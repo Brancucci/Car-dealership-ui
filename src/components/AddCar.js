@@ -30,24 +30,26 @@ const AddCar = (props) => {
 
     return (
         <div>
-            <Button variant={"outlined"} color={"primary"} style={{margin: 10}} onClick={handleClickOpen}>New Car</Button>
+            <Button variant="outlined" color="primary" style={{margin: 10}} onClick={handleClickOpen}>
+                New Car
+            </Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>New car</DialogTitle>
                 <DialogContent>
-                    <TextField autoFocus fullWidth label={"Brand"} name="brand"
-                           value={car.brand} onChange={handleChange}/><br/>
-                    <TextField autoFocus fullWidth label={"Model"} name="model"
-                           value={car.model} onChange={handleChange}/><br/>
-                    <TextField autoFocus fullWidth label={"Color"} name="color"
-                           value={car.color} onChange={handleChange}/><br/>
-                    <TextField autoFocus fullWidth label={"Year"} name="year"
-                           value={car.year} onChange={handleChange}/><br/>
-                    <TextField autoFocus fullWidth label={"Price"} name="price"
-                           value={car.price} onChange={handleChange}/><br/>
+                    <TextField autoFocus fullWidth label="Brand" name="brand"
+                               value={car.brand} onChange={handleChange}/>
+                    <TextField fullWidth label="Model" name="model"
+                               value={car.model} onChange={handleChange}/>
+                    <TextField fullWidth label="Color" name="color"
+                               value={car.color} onChange={handleChange}/>
+                    <TextField fullWidth label="Year" name="year"
+                               value={car.year} onChange={handleChange}/>
+                    <TextField fullWidth label="Price" name="price"
+                               value={car.price} onChange={handleChange}/>
                 </DialogContent>
                 <DialogActions>
-                    <Button color={"secondary"} onClick={handleClose}>Cancel</Button>
-                    <Button color={"primary"} onClick={handleSave}>Save</Button>
+                    <Button color="secondary" onClick={handleClose}>Cancel</Button>
+                    <Button color="primary" onClick={handleSave}>Save</Button>
                 </DialogActions>
             </Dialog>
         </div>
