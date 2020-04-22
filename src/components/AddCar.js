@@ -26,7 +26,7 @@ const AddCar = (props) => {
     const handleSave = () => {
         props.addCar(car);
         handleClose();
-    }
+    };
 
     return (
         <div>

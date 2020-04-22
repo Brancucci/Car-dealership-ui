@@ -21,8 +21,11 @@ class Carlist extends Component {
     }
 
     fetchCars = () => {
+        const token = sessionStorage.getItem("jwt");
         console.log("FETCH")
-        fetch(SERVER_URL + 'api/cars')
+        fetch(SERVER_URL + 'api/cars', {
+            headers: {'Authorization': token}
+        })
             .then((response) => response.json())
             .then((responseData) => {
                 this.setState({
@@ -35,7 +38,11 @@ class Carlist extends Component {
     // Delete car
     onDelClick = (link) => {
         if (window.confirm('Are you sure to delete?')) {
-            fetch(link, {method: 'DELETE'})
+            const token = sessionStorage.getItem("jwt");
+            fetch(link, {
+                method: 'DELETE',
+                headers: {'Authorization': token}
+            })
                 .then(res => {
                     toast.success("Car deleted", {
                         position: toast.POSITION.BOTTOM_LEFT
@@ -53,10 +60,12 @@ class Carlist extends Component {
 
     // Add new car
     addCar(car) {
+        const token = sessionStorage.getItem('jwt');
         fetch(SERVER_URL + 'api/cars',
             { method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': token
                 },
                 body: JSON.stringify(car)
             })
@@ -66,10 +75,12 @@ class Carlist extends Component {
 
     // Update car
     updateCar(car, link) {
+        const token = sessionStorage.getItem('jwt');
         fetch(link,
             { method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': token
                 },
                 body: JSON.stringify(car)
             })
